@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
@@ -18,12 +18,15 @@ header {
 .search-container {
   margin-top: 2rem;
   display: flex;
+  justify-content: center;
   gap: 0.5rem;
+  width: 100%;
 }
 
 #search-box {
   padding: 0.5rem;
   font-size: 1rem;
+  width: 300px; /* Set a fixed width */
 }
 
 #search-button {
@@ -37,4 +40,30 @@ header {
 
 #search-button:hover {
   background-color: #555;
+}
+
+#results-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.gif-item {
+  max-width: 200px;
+}
+
+.gif-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#no-results {
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+  margin-top: 2rem;
 }

@@ -28,7 +28,17 @@ document
   });
 
 function displayGifs(gifs) {
-  gifs.forEach((gif) => {
-    console.log(gif.images.fixed_height.url);
-  });
+  const resultsContainer = document.getElementById("results-container");
+  resultsContainer.innerHTML = "";
+
+  if (gifs.length > 0) {
+    gifs.forEach((gif) => {
+      const gifItem = document.createElement("div");
+      gifItem.className = "gif-item";
+      gifItem.innerHTML = `<img src="${gif.images.fixed_height.url}" alt="${gif.title}">`;
+      resultsContainer.appendChild(gifItem);
+    });
+  } else {
+    resultsContainer.innerHTML = '<p id="no-results">No results found</p>';
+  }
 }
