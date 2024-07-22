@@ -27,7 +27,8 @@ module.exports = {
       template: "./src/index.html",
     }),
     new Dotenv({
-      path: "./.env", // Path to .env file
+      path: "./.env",
+      systemvars: true,
     }),
   ],
   optimization: {
