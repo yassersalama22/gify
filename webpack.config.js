@@ -1,29 +1,30 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
-  mode: 'production',
-  entry: './src/index.js',
+  mode: "production",
+  entry: "./src/index.js",
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    assetModuleFilename: 'assets/[hash][ext][query]'
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    assetModuleFilename: "assets/[hash][ext][query]",
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif|woff|woff2|eot|ttf|otf)$/,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: "./src/index.html",
     }),
   ],
   optimization: {
@@ -31,7 +32,7 @@ module.exports = {
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: path.join(__dirname, "dist"),
     },
     compress: true,
     port: 9000,
