@@ -4,13 +4,13 @@ import "./style.css";
 const handleSearch = async () => {
   const searchQuery = document.getElementById("search-box").value.trim();
   if (searchQuery) {
-    const apiUrl = "/.netlify/functions/giphy-search";
+    const apiKey = process.env.GIPHY_API_KEY;
+    const apiUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${encodeURIComponent(
+      searchQuery
+    )}&limit=10`;
 
     try {
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        body: JSON.stringify({ query: searchQuery }),
-      });
+      const response = await fetch(apiUrl);
 
       if (!response.ok) {
         throw new Error("API response is not OK");
